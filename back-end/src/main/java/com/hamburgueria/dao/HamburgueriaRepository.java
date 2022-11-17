@@ -3,9 +3,9 @@ package com.hamburgueria.dao;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.hamburgueria.model.Burger;
+import com.hamburgueria.model.Category;
 
 @Repository
-public interface HamburgueriaRepository extends JpaRepository<Burger, Long>{
+public interface HamburgueriaRepository extends JpaRepository<Category, Long>{
 
 }

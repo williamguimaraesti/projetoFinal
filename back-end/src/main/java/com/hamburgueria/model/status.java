@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,6 +23,14 @@ public class status implements Serializable {
 
     @Column(nullable = false)
     private String progress;
+
+    /**
+     * Methods cardinality
+     */
+
+    @OneToOne
+    @JoinColumn(name = "snackorder_id")
+    private SnackOrder snackOrder;
 
     /**
      * Methods
@@ -41,4 +51,13 @@ public class status implements Serializable {
     public void setProgress(String progress) {
         this.progress = progress;
     }
+
+    public SnackOrder getSnackOrder() {
+        return snackOrder;
+    }
+
+    public void setSnackOrder(SnackOrder snackOrder) {
+        this.snackOrder = snackOrder;
+    }
+
 }

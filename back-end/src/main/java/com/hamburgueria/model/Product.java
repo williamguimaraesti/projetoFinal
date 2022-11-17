@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -27,6 +29,18 @@ public class Product implements Serializable {
 
     @Column(nullable = false)
     private float price;
+
+    /**
+     * Methods cardinality
+     */
+
+    @OneToMany
+    @JoinColumn(name = "category_id")
+    private Category category;
+
+    @OneToMany
+    @JoinColumn(name = "snackorder_id")
+    private SnackOrder snackOrder;
 
     /**
      * Methods
@@ -63,4 +77,22 @@ public class Product implements Serializable {
     public void setPrice(float price) {
         this.price = price;
     }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public SnackOrder getSnackOrder() {
+        return snackOrder;
+    }
+
+    public void setSnackOrder(SnackOrder snackOrder) {
+        this.snackOrder = snackOrder;
+    }
+
+    
 }

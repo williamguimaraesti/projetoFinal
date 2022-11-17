@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hamburgueria.dao.HamburgueriaRepository;
-import com.hamburgueria.model.Burger;
+import com.hamburgueria.model.Category;
 
 
 @RestController
@@ -25,22 +25,22 @@ public class HamburgueriaController {
 	private HamburgueriaRepository repository;
 
 	@GetMapping
-	public List<Burger> findAll(){
+	public List<Category> findAll(){
 		return repository.findAll();
 	}
 
 	@GetMapping(path = {"/{id}"})
-	public Optional<Burger> findById(@PathVariable long id){
+	public Optional<Category> findById(@PathVariable long id){
 		return repository.findById(id);
 	}
 
 	@PostMapping
-	public Burger create(@RequestBody Burger hamburguer){
+	public Category create(@RequestBody Category hamburguer){
 		return repository.save(hamburguer);
 	}
 
 	@PutMapping
-	public Burger update(@RequestBody Burger hamburguer){
+	public Category update(@RequestBody Category hamburguer){
 		return repository.save(hamburguer);
 	}	
 

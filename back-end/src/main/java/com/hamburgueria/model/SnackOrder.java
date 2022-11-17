@@ -9,6 +9,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -31,6 +34,20 @@ public class SnackOrder implements Serializable {
 
     @Column(nullable = false, unique = true, length = 20)
     private String note;
+
+    /**
+     * Methods cardinality
+     */
+
+    @ManyToOne
+    @JoinColumn(name = "registrationclient_id")
+    private RegistrationClient registrationClient;
+
+    @OneToOne
+    private com.hamburgueria.model.status status;
+
+    @ManyToOne
+    private Product product;
 
     /**
      * Methods
@@ -74,6 +91,14 @@ public class SnackOrder implements Serializable {
 
     public void setNote(String note) {
         this.note = note;
+    }
+
+    public RegistrationClient getRegistrationClient() {
+        return registrationClient;
+    }
+
+    public void setRegistrationClient(RegistrationClient registrationClient) {
+        this.registrationClient = registrationClient;
     }
 
 }
