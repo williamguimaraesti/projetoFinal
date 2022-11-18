@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.hamburgueria.dao.SnackOrderRepository;
 
 @RestController
-@RequestMapping({"snackOrder"})
+@RequestMapping({"/snackOrder"})
 public class SnackOrder {
     
     @Autowired

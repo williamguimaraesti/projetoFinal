@@ -16,7 +16,7 @@ import com.hamburgueria.dao.ClientRepository;
 import com.hamburgueria.model.Client;
 
 @RestController
-@RequestMapping({"client"})
+@RequestMapping({"/client"})
 public class ClientController {
     
     @Autowired

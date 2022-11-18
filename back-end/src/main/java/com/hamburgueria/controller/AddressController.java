@@ -16,7 +16,7 @@ import com.hamburgueria.dao.AddressRepository;
 import com.hamburgueria.model.Address;
 
 @RestController
-@RequestMapping({"address"})
+@RequestMapping({"/address"})
 public class AddressController {
     
     @Autowired

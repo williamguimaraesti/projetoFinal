@@ -16,7 +16,7 @@ import com.hamburgueria.dao.ProductRepository;
 import com.hamburgueria.model.Product;
 
 @RestController
-@RequestMapping({"product"})
+@RequestMapping({"/product"})
 public class ProductController {
     
     @Autowired
