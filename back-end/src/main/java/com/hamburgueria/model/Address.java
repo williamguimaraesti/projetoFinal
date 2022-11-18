@@ -1,12 +1,13 @@
 package com.hamburgueria.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -36,12 +37,12 @@ public class Address {
     private String uf;
 
     /**
-     * Methods cardinality
+     * relationship mapping
      */
 
-    @ManyToOne
-    @JoinColumn(name = "registrationclient_id")
-    private RegistrationClient registrationClient;
+    @OneToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "client_id")
+    private Client Client;
 
     /**
      * Methods
@@ -103,11 +104,11 @@ public class Address {
         this.uf = uf;
     }
 
-    public RegistrationClient getRegistrationClient() {
-        return registrationClient;
+    public Client getClient() {
+        return Client;
     }
 
-    public void setRegistrationClient(RegistrationClient registrationClient) {
-        this.registrationClient = registrationClient;
+    public void setClient(Client Client) {
+        this.Client = Client;
     }
 }

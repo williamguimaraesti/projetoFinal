@@ -1,14 +1,16 @@
 package com.hamburgueria.model;
 
 import java.io.Serializable;
+import java.util.Set;
 import java.util.UUID;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -31,16 +33,11 @@ public class Product implements Serializable {
     private float price;
 
     /**
-     * Methods cardinality
+     * relationship mapping
      */
 
-    @OneToMany
-    @JoinColumn(name = "category_id")
-    private Category category;
-
-    @OneToMany
-    @JoinColumn(name = "snackorder_id")
-    private SnackOrder snackOrder;
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+    private Set<SnackOrder> snackOrder; 
 
     /**
      * Methods
@@ -77,22 +74,4 @@ public class Product implements Serializable {
     public void setPrice(float price) {
         this.price = price;
     }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
-    public SnackOrder getSnackOrder() {
-        return snackOrder;
-    }
-
-    public void setSnackOrder(SnackOrder snackOrder) {
-        this.snackOrder = snackOrder;
-    }
-
-    
 }

@@ -4,18 +4,19 @@ import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.UUID;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "snackorder")
+@Table(name = "snackOrder")
 public class SnackOrder implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -36,18 +37,20 @@ public class SnackOrder implements Serializable {
     private String note;
 
     /**
-     * Methods cardinality
+     * relationship mapping
      */
 
-    @ManyToOne
-    @JoinColumn(name = "registrationclient_id")
-    private RegistrationClient registrationClient;
+    @OneToMany
+    @JoinColumn(name = "client_id")
+    private Client client;
 
-    @OneToOne
-    private com.hamburgueria.model.status status;
-
-    @ManyToOne
+    @OneToMany
+    @JoinColumn(name = "product_id")
     private Product product;
+
+    @OneToOne (cascade = {CascadeType.ALL})
+    @JoinColumn(name = "StatusSnack_id")
+    private StatusSnack statusSnack;
 
     /**
      * Methods
@@ -93,12 +96,27 @@ public class SnackOrder implements Serializable {
         this.note = note;
     }
 
-    public RegistrationClient getRegistrationClient() {
-        return registrationClient;
+    public Client getClient() {
+        return client;
     }
 
-    public void setRegistrationClient(RegistrationClient registrationClient) {
-        this.registrationClient = registrationClient;
+    public void setClient(Client client) {
+        this.client = client;
     }
 
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public StatusSnack getStatusSnack() {
+        return statusSnack;
+    }
+
+    public void setStatusSnack(StatusSnack statusSnack) {
+        this.statusSnack = statusSnack;
+    }
 }
