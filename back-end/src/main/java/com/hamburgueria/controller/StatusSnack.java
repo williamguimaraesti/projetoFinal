@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hamburgueria.dao.StatusSnackRepository;
-import com.hamburgueria.model.StatusSnack;
 
 @RestController
 @RequestMapping({"statusSnack"})
@@ -23,12 +22,12 @@ public class StatusSnack {
 	private StatusSnackRepository repository;
 
 	@GetMapping
-	public List<StatusSnack> findAll(){
+	public List<com.hamburgueria.model.StatusSnack> findAll(){
 		return repository.findAll();
 	}
 
 	@GetMapping(path = {"/{id}"})
-	public Optional<StatusSnack> findById(@PathVariable long id){
+	public Optional<com.hamburgueria.model.StatusSnack> findById(@PathVariable long id){
 		return repository.findById(id);
 	}
 
