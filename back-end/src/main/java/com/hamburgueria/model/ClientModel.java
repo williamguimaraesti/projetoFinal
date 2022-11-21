@@ -9,7 +9,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "client")
-public class Client implements Serializable {
+public class ClientModel implements Serializable {
    private static final long serialVersionUID = 1L;
 
    @Id
@@ -28,10 +28,10 @@ public class Client implements Serializable {
 
    @OneToOne(cascade = {CascadeType.ALL})
    @JoinColumn(name = "address_id")
-   private Address Address;
+   private AddressModel addressModel;
 
    @OneToMany(mappedBy = " client", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-   private Set<SnackOrder> snackOrder;
+   private Set<SnackOrderModel> snackOrder;
 
 
    /**
@@ -62,12 +62,12 @@ public class Client implements Serializable {
       Contact = contact;
    }
 
-   public Address getAddress() {
-      return Address;
+   public AddressModel getAddressModel() {
+      return addressModel;
    }
 
-   public void setAddress(Address address) {
-      Address = address;
+   public void setAddress(AddressModel addressModel) {
+     this.addressModel = addressModel;
    }
 
    

@@ -17,7 +17,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "snackOrder")
-public class SnackOrder implements Serializable {
+public class SnackOrderModel implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -42,15 +42,15 @@ public class SnackOrder implements Serializable {
 
     @OneToMany
     @JoinColumn(name = "client_id")
-    private Client client;
+    private ClientModel clientModel;
 
     @OneToMany
     @JoinColumn(name = "product_id")
-    private Product product;
+    private ProductModel productModel;
 
     @OneToOne (cascade = {CascadeType.ALL})
     @JoinColumn(name = "StatusSnack_id")
-    private StatusSnack statusSnack;
+    private StatusSnackModel statusSnackModel;
 
     /**
      * Methods
@@ -96,27 +96,27 @@ public class SnackOrder implements Serializable {
         this.note = note;
     }
 
-    public Client getClient() {
-        return client;
+    public ClientModel getClientModel() {
+        return clientModel;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void setClient(ClientModel clientModel) {
+        this.clientModel = clientModel;
     }
 
-    public Product getProduct() {
-        return product;
+    public ProductModel getProduct() {
+        return productModel;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setProduct(ProductModel productModel) {
+        this.productModel = productModel;
     }
 
-    public StatusSnack getStatusSnack() {
-        return statusSnack;
+    public StatusSnackModel getStatusSnackModel() {
+        return statusSnackModel;
     }
 
-    public void setStatusSnack(StatusSnack statusSnack) {
-        this.statusSnack = statusSnack;
+    public void setStatusSnackModel(StatusSnackModel statusSnackModel) {
+        this.statusSnackModel = statusSnackModel;
     }
 }

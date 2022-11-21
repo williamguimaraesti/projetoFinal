@@ -16,7 +16,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "product")
-public class Product implements Serializable {
+public class ProductModel implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -37,7 +37,7 @@ public class Product implements Serializable {
      */
 
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-    private Set<SnackOrder> snackOrder; 
+    private Set<SnackOrderModel> snackOrderModel; 
 
     /**
      * Methods

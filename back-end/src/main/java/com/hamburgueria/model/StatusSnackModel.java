@@ -15,7 +15,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "statusSnack")
-public class StatusSnack implements Serializable {
+public class StatusSnackModel implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -31,7 +31,7 @@ public class StatusSnack implements Serializable {
 
     @OneToOne (cascade = {CascadeType.ALL})
     @JoinColumn(name = "snackorder_id")
-    private SnackOrder snackOrder;
+    private SnackOrderModel snackOrderModel;
 
     /**
      * Methods
@@ -53,11 +53,11 @@ public class StatusSnack implements Serializable {
         this.progress = progress;
     }
 
-    public SnackOrder getSnackOrder() {
-        return snackOrder;
+    public SnackOrderModel getSnackOrderModel() {
+        return snackOrderModel;
     }
 
-    public void setSnackOrder(SnackOrder snackOrder) {
-        this.snackOrder = snackOrder;
+    public void setSnackOrderModel(SnackOrderModel snackOrderModel) {
+        this.snackOrderModel = snackOrderModel;
     }
 }

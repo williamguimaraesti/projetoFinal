@@ -2,9 +2,9 @@ package com.hamburgueria.dao;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.hamburgueria.model.Address;
+import com.hamburgueria.model.AddressModel;
 
 @Repository
-public interface AddressRepository extends JpaRepository<Address, Long>{
+public interface AddressRepository extends JpaRepository<AddressModel, Long>{
     
 }

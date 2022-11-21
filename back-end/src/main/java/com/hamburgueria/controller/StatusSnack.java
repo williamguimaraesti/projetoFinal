@@ -15,19 +15,19 @@ import org.springframework.web.bind.annotation.RestController;
 import com.hamburgueria.dao.StatusSnackRepository;
 
 @RestController
-@RequestMapping({"/statusSnack"})
+@RequestMapping("/statusSnack")
 public class StatusSnack {
     
     @Autowired
 	private StatusSnackRepository repository;
 
 	@GetMapping
-	public List<com.hamburgueria.model.StatusSnack> findAll(){
+	public List<com.hamburgueria.model.StatusSnackModel> findAll(){
 		return repository.findAll();
 	}
 
 	@GetMapping(path = {"/{id}"})
-	public Optional<com.hamburgueria.model.StatusSnack> findById(@PathVariable long id){
+	public Optional<com.hamburgueria.model.StatusSnackModel> findById(@PathVariable long id){
 		return repository.findById(id);
 	}
 

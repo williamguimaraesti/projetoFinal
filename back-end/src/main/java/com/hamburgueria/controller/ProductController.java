@@ -13,32 +13,32 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hamburgueria.dao.ProductRepository;
-import com.hamburgueria.model.Product;
+import com.hamburgueria.model.ProductModel;
 
 @RestController
-@RequestMapping({"/product"})
+@RequestMapping("/product")
 public class ProductController {
     
     @Autowired
 	private ProductRepository repository;
 
 	@GetMapping
-	public List<Product> findAll(){
+	public List<ProductModel> findAll(){
 		return repository.findAll();
 	}
 
 	@GetMapping(path = {"/{id}"})
-	public Optional<Product> findById(@PathVariable long id){
+	public Optional<ProductModel> findById(@PathVariable long id){
 		return repository.findById(id);
 	}
 
 	@PostMapping
-	public Product create(@RequestBody Product product){
+	public ProductModel create(@RequestBody ProductModel product){
 		return repository.save(product);
 	}
 
 	@PutMapping
-	public Product update(@RequestBody Product product){
+	public ProductModel update(@RequestBody ProductModel product){
 		return repository.save(product);
 	}	
 

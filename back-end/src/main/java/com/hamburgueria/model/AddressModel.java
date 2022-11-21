@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "address")
-public class Address {
+public class AddressModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,7 +42,7 @@ public class Address {
 
     @OneToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "client_id")
-    private Client Client;
+    private ClientModel clientModel;
 
     /**
      * Methods
@@ -104,11 +104,11 @@ public class Address {
         this.uf = uf;
     }
 
-    public Client getClient() {
-        return Client;
+    public ClientModel getClientModel() {
+        return clientModel;
     }
 
-    public void setClient(Client Client) {
-        this.Client = Client;
+    public void setClientModel(ClientModel clientModel) {
+        this.clientModel = clientModel;
     }
 }
