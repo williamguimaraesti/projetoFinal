@@ -1,0 +1,34 @@
+{
+    "dumper": "mysqlsh Ver 8.0.30-g2 for Linux on x86_64 - for MySQL 8.0.30 (MySQL Community Server (GPL))",
+    "version": "2.0.1",
+    "origin": "dumpSchemas",
+    "schemas": [
+        "lanches"
+    ],
+    "basenames": {
+        "lanches": "lanches"
+    },
+    "defaultCharacterSet": "utf8mb4",
+    "tzUtc": true,
+    "bytesPerChunk": 64000000,
+    "user": "root",
+    "hostname": "fedora",
+    "server": "fedora",
+    "serverVersion": "8.0.31",
+    "binlogFile": "binlog.000086",
+    "binlogPosition": 556,
+    "gtidExecuted": "",
+    "gtidExecutedInconsistent": false,
+    "consistent": true,
+    "mdsCompatibility": true,
+    "compatibilityOptions": [
+        "create_invisible_pks",
+        "force_innodb",
+        "strip_definers",
+        "strip_restricted_grants",
+        "strip_tablespaces",
+        "skip_invalid_accounts"
+    ],
+    "capabilities": [],
+    "begin": "2022-11-29 16:22:34"
+}
